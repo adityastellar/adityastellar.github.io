@@ -3,401 +3,730 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aditya Nakadi | Threat Intelligence, Security Testing and Technology Policy</title>
-<meta name="description" content="Cyber threat intelligence, application and API security testing, trusted computing and technology policy. MS Cybersecurity candidate at Georgia Tech, graduating May 2027.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aditya Nakadi | Threat Intelligence, Security Testing and Technology Policy">
-<meta property="og:description" content="Cyber threat intelligence, application and API security testing, trusted computing and technology policy. MS Cybersecurity candidate at Georgia Tech.">
-<meta name="twitter:card" content="summary">
+<title>Aditya Nakadi | Cybersecurity</title>
+<meta name="description" content="Cyber threat intelligence, application and API security testing, trusted computing and technology policy. MS Cybersecurity candidate at Georgia Tech.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#14171C;
-  --surface:#1C2027;
-  --surface-2:#252A32;
-  --line:#333A44;
-  --text:#EDE7DA;
-  --dim:#9A9385;
-  --accent:#D8C08A;
-  --link:#B5C4D1;
-  --on-accent:#14171C;
-  --nav-bg:rgba(20,23,28,.9);
-  --glow:rgba(216,192,138,.12);
-  --ok:#8FBF9F;
-  --bad:#D98B7A;
-}
-html[data-theme="neutral"]{
-  --bg:#E8E0CF;
-  --surface:#F1EBDD;
-  --surface-2:#DBD1BC;
-  --line:#C4B89E;
-  --text:#1E232A;
-  --dim:#6A6458;
-  --accent:#7A5230;
-  --link:#3A5A72;
-  --on-accent:#F1EBDD;
-  --nav-bg:rgba(232,224,207,.93);
-  --glow:rgba(122,82,48,.12);
-}
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--bg);color:var(--text);transition:background .2s,color .2s;
-  font-family:"Source Serif 4",Georgia,serif;font-size:1.03rem;line-height:1.7;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,nav,button,label,input,textarea,.sans{font-family:"Space Grotesk",system-ui,sans-serif}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+:root{
+  --bg:#06090F;
+  --bg2:#0C1018;
+  --bg3:#111622;
+  --card:rgba(17,22,34,.55);
+  --card-h:rgba(22,30,48,.7);
+  --glass:rgba(255,255,255,.03);
+  --glass2:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.06);
+  --border-h:rgba(255,255,255,.12);
+  --text:#E2E8F0;
+  --text2:#94A3B8;
+  --dim:#64748B;
+  --accent:#3B82F6;
+  --accent2:#60A5FA;
+  --cyan:#06B6D4;
+  --grad:linear-gradient(135deg,#3B82F6,#06B6D4);
+  --grad2:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 50%,#06B6D4 100%);
+  --glow:0 0 40px rgba(59,130,246,.15);
+  --glow-h:0 0 60px rgba(59,130,246,.25);
+  --r:8px;
+  --r2:12px;
+  --nav-bg:rgba(6,9,15,.85);
+}
+html[data-theme="light"]{
+  --bg:#F8FAFC;
+  --bg2:#F1F5F9;
+  --bg3:#E2E8F0;
+  --card:rgba(255,255,255,.7);
+  --card-h:rgba(255,255,255,.9);
+  --glass:rgba(0,0,0,.02);
+  --glass2:rgba(0,0,0,.04);
+  --border:rgba(0,0,0,.08);
+  --border-h:rgba(0,0,0,.15);
+  --text:#0F172A;
+  --text2:#475569;
+  --dim:#94A3B8;
+  --accent:#2563EB;
+  --accent2:#3B82F6;
+  --cyan:#0891B2;
+  --grad:linear-gradient(135deg,#2563EB,#0891B2);
+  --grad2:linear-gradient(135deg,#2563EB 0%,#7C3AED 50%,#0891B2 100%);
+  --glow:0 0 40px rgba(37,99,235,.1);
+  --glow-h:0 0 60px rgba(37,99,235,.18);
+  --nav-bg:rgba(248,250,252,.88);
+}
+
+body{background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;
+  font-size:1rem;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  transition:background .3s,color .3s}
 .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
-a{color:var(--link)}
+a{color:var(--accent2);text-decoration:none;transition:color .2s}
+a:hover{color:var(--cyan)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-p{margin:0 0 1rem}
+::selection{background:rgba(59,130,246,.3)}
 
-#nav{position:fixed;z-index:50;top:0;left:0;right:0;background:var(--nav-bg);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-#nav ul{display:flex;gap:.1rem;margin:0 auto;padding:.6rem clamp(1rem,4vw,2rem);list-style:none;
-  overflow-x:auto;max-width:900px}
-#nav a{display:block;padding:.3rem .75rem;font-size:.82rem;color:var(--dim);text-decoration:none;white-space:nowrap;transition:color .15s}
-#nav a:hover{color:var(--text)}
-#nav a.here{color:var(--accent)}
-.themes{margin-left:auto;display:flex;padding-left:1rem}
-.themes button{cursor:pointer;background:none;border:0;color:var(--dim);font-size:1rem;
-  line-height:1;padding:.25rem .35rem;transition:color .15s,transform .2s}
-.themes button:hover{color:var(--accent);transform:rotate(180deg)}
-main{padding-top:3.2rem}
-.wrap{max-width:850px;margin:0 auto;padding:0 clamp(1.5rem,6vw,2rem)}
+/* ═══ NAV ═══ */
+nav{position:fixed;z-index:100;top:0;left:0;right:0;background:var(--nav-bg);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;max-width:1100px;margin:0 auto;
+  padding:.55rem 2rem;gap:0;overflow-x:auto}
+.nav-inner .logo{font-weight:700;font-size:.85rem;color:var(--text);letter-spacing:-.02em;
+  margin-right:1.5rem;white-space:nowrap;flex-shrink:0}
+.nav-inner .logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:.15rem;flex:1;overflow-x:auto}
+.nav-links a{font-size:.72rem;font-weight:500;color:var(--dim);padding:.3rem .55rem;
+  border-radius:6px;transition:color .15s,background .15s;white-space:nowrap}
+.nav-links a:hover{color:var(--text);background:var(--glass2)}
+.nav-links a.here{color:var(--accent2);background:rgba(59,130,246,.08)}
+.theme-btn{cursor:pointer;background:var(--glass2);border:1px solid var(--border);color:var(--dim);
+  font-size:.8rem;width:2rem;height:2rem;border-radius:50%;display:grid;place-content:center;
+  margin-left:auto;flex-shrink:0;transition:all .25s}
+.theme-btn:hover{color:var(--accent2);border-color:var(--accent);box-shadow:var(--glow);transform:rotate(180deg)}
 
-/* hero */
-.hero{position:relative;padding:clamp(4.5rem,13vw,9rem) 0 clamp(3rem,7vw,4.5rem)}
-.hero:before{content:"";position:absolute;top:-8rem;left:-14rem;width:34rem;height:34rem;pointer-events:none;
-  background:radial-gradient(circle,var(--glow),transparent 62%)}
-.hero>*{position:relative}
-.hero-grid{position:relative;display:grid;gap:clamp(2rem,5vw,3rem);align-items:center}
-@media(min-width:760px){.hero-grid:has(.portrait){grid-template-columns:1fr 17rem}}
-.portrait{position:relative;aspect-ratio:1/1;border:1px solid var(--line);border-radius:3px;
-  background:var(--surface);overflow:hidden}
-.portrait img{width:100%;height:100%;object-fit:cover;display:block}
-.portrait .ph{position:absolute;inset:0;z-index:-1;display:grid;place-content:center;text-align:center;
-  font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--dim);padding:1rem}
-.hero h1{font-size:clamp(3rem,11vw,5.6rem);font-weight:700;letter-spacing:-.045em;line-height:.94;margin:0 0 1.1rem}
-.hero h1 span{color:var(--accent)}
-.hero .role{font-family:"Space Grotesk",sans-serif;font-size:clamp(1rem,2.6vw,1.2rem);
-  color:var(--text);margin:0 0 1.4rem;font-weight:500}
-.hero .lede{max-width:46ch;color:var(--dim);font-size:1.05rem;margin:0}
-.links{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.6rem 0 0}
-.links a{font-family:"Space Grotesk",sans-serif;font-size:.88rem;text-decoration:none;color:var(--text);
-  border:1px solid var(--line);background:var(--surface);padding:.5rem 1rem;border-radius:2px;transition:.15s}
-.links a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+/* ═══ LAYOUT ═══ */
+main{padding-top:3.5rem}
+.wrap{max-width:1060px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
+section{padding:clamp(4rem,8vw,6rem) 0 0}
 
-/* sections */
-section{padding:clamp(3rem,7vw,4.5rem) 0 0}
-.head{margin-bottom:1.75rem}
-.head h2{margin:0;font-size:1.65rem;font-weight:700;letter-spacing:-.02em}
-.head h2:after{content:"";display:block;width:2.5rem;height:3px;background:var(--accent);margin-top:.7rem}
-.note{color:var(--dim);font-size:.94rem;max-width:52ch;margin:-.9rem 0 1.75rem}
+/* ═══ REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:none}
 
-/* cards */
-.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:3px;
-  padding:1.35rem clamp(1.1rem,3vw,1.6rem);margin-bottom:.85rem;transition:border-color .18s}
-.card:hover{border-color:var(--accent)}
-.card .idx{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent);letter-spacing:.08em}
-.card h3{margin:.25rem 2.5rem .2rem 0;font-size:1.08rem;font-weight:500;line-height:1.4}
-.card .meta{font-family:"Space Grotesk",sans-serif;font-size:.8rem;color:var(--dim);margin-bottom:.85rem}
-.card .lead{margin:0;color:var(--text)}
-.card .more{display:none;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid var(--line)}
-.card.open .more{display:block;animation:fade .2s ease-out}
-@keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
-.toggle{position:absolute;top:1.1rem;right:1.1rem;width:1.9rem;height:1.9rem;line-height:1;
-  background:var(--surface-2);border:1px solid var(--line);border-radius:2px;cursor:pointer;
-  font-family:"JetBrains Mono",monospace;font-size:1rem;color:var(--accent);
-  display:grid;place-content:center;transition:.15s}
-.toggle:hover{border-color:var(--accent);background:var(--bg)}
-.sublabel{font-family:"Space Grotesk",sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--accent);margin:1.4rem 0 .5rem}
-.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
-.tags span{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--dim);
-  background:var(--surface-2);border-radius:2px;padding:.2rem .5rem}
+/* ═══ SECTION HEADERS ═══ */
+.sec-head{margin-bottom:2.5rem;position:relative}
+.sec-head::before{content:"";position:absolute;left:0;top:.45em;width:3px;height:1.1em;
+  background:var(--grad);border-radius:2px}
+.sec-head h2{font-size:1.5rem;font-weight:700;padding-left:1rem;letter-spacing:-.03em}
+.sec-head p{color:var(--text2);font-size:.88rem;padding-left:1rem;margin-top:.3rem}
 
-/* the interactive */
-.pick{background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:1.1rem;margin:1.2rem 0}
-.pick .why{margin:0 0 .9rem;font-size:.85rem;color:var(--dim)}
-.pick h4{margin:0 0 .5rem;font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.rows{display:grid;gap:.3rem;margin-bottom:.9rem;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--dim)}
-.rows b{color:var(--text);font-weight:500}
-.ctl{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
-.ctl button{font-family:"Space Grotesk",sans-serif;font-size:.78rem;cursor:pointer;background:var(--surface-2);
-  color:var(--dim);border:1px solid var(--line);border-radius:2px;padding:.35rem .7rem}
-.ctl button:hover{border-color:var(--accent);color:var(--accent)}
-.verdict{margin:0;font-size:.92rem;color:var(--dim);min-height:2.5rem}
-.verdict b{color:var(--text);font-weight:600}
+/* ═══ HERO ═══ */
+.hero{min-height:85vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:clamp(5rem,12vw,8rem) 0 clamp(3rem,6vw,4rem)}
+.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
+.hero-bg .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;
+  animation:orbFloat 12s ease-in-out infinite alternate}
+.hero-bg .orb-1{width:500px;height:500px;top:-15%;left:-10%;
+  background:radial-gradient(circle,rgba(59,130,246,.5),transparent 70%)}
+.hero-bg .orb-2{width:400px;height:400px;bottom:-10%;right:-5%;
+  background:radial-gradient(circle,rgba(6,182,212,.4),transparent 70%);animation-delay:4s;animation-direction:alternate-reverse}
+.hero-bg .orb-3{width:300px;height:300px;top:30%;left:40%;
+  background:radial-gradient(circle,rgba(139,92,246,.3),transparent 70%);animation-delay:8s}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,-20px) scale(1.1)}}
+.hero-content{position:relative;z-index:1;max-width:700px}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;font-weight:500;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:1.8rem;padding:0}
+.hero-badge .dot{display:none}
+.hero h1{font-size:clamp(3.5rem,11vw,6rem);font-weight:800;letter-spacing:-.06em;
+  line-height:.88;margin-bottom:1.5rem}
+.hero h1 .gradient{background:var(--grad2);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-size:clamp(1.05rem,2.5vw,1.3rem);font-weight:400;color:var(--text2);
+  line-height:1.6;margin-bottom:2.5rem;max-width:55ch}
+.hero-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.btn{font-family:"Inter",system-ui,sans-serif;font-size:.82rem;font-weight:600;
+  padding:.6rem 1.5rem;border-radius:var(--r);cursor:pointer;transition:all .2s;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.btn-primary{background:var(--grad);color:#fff;border:none;box-shadow:0 2px 12px rgba(59,130,246,.25)}
+.btn-primary:hover{box-shadow:0 4px 24px rgba(59,130,246,.4);transform:translateY(-1px);color:#fff}
+.btn-ghost{background:var(--glass2);color:var(--text2);border:1px solid var(--border)}
+.btn-ghost:hover{background:var(--glass);border-color:var(--border-h);color:var(--text);box-shadow:var(--glow)}
 
-/* coursework */
-.term{font-family:"JetBrains Mono",monospace;font-size:.74rem;letter-spacing:.1em;color:var(--accent);margin:1.75rem 0 .8rem}
-.term:first-of-type{margin-top:0}
-.courses{display:grid;gap:1rem}
-@media(min-width:680px){.courses{grid-template-columns:1fr 1fr;gap:1.2rem 2rem}}
-.course h3{margin:0 0 .1rem;font-size:.93rem;font-weight:500}
-.course .who{font-family:"Space Grotesk",sans-serif;font-size:.76rem;color:var(--accent);margin:0 0 .2rem;opacity:.85}
-.course p{margin:0;font-size:.89rem;color:var(--dim);line-height:1.6}
+/* ═══ CARDS ═══ */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);
+  padding:1.3rem 1.5rem;transition:all .25s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:var(--grad);opacity:0;transition:opacity .25s}
+.card:hover{background:var(--card-h);border-color:var(--border-h);box-shadow:var(--glow);
+  transform:translateY(-2px)}
+.card:hover::before{opacity:1}
 
-/* grids */
-.grid2{display:grid;gap:1.4rem}
-@media(min-width:680px){.grid2{grid-template-columns:1fr 1fr;gap:1.5rem 2.5rem}}
-.grid2 h3{margin:0 0 .3rem;font-size:.83rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.grid2 p{margin:0;font-size:.9rem;color:var(--dim);line-height:1.65}
-.cred h3{color:var(--text);text-transform:none;letter-spacing:0;font-size:.98rem}
+/* ═══ EDUCATION ═══ */
+.edu-grid{display:grid;gap:.7rem}
+@media(min-width:640px){.edu-grid{grid-template-columns:1fr 1fr;gap:.7rem}}
+@media(min-width:900px){.edu-grid{grid-template-columns:1fr 1fr 1fr}}
+.edu-card .label{font-family:"JetBrains Mono",monospace;font-size:.6rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:.4rem}
+.edu-card h3{font-size:.9rem;font-weight:700;margin-bottom:.2rem;line-height:1.3}
+.edu-card .meta{font-size:.78rem;color:var(--text2);line-height:1.6}
+.edu-card .meta strong{color:var(--text);font-weight:600}
 
-/* contact */
-.form{display:grid;gap:.55rem;max-width:30rem;margin:0 0 1.75rem}
+/* GTA + extras — stacked list */
+.edu-extra{grid-column:1/-1;display:flex;flex-direction:column;gap:1.4rem}
+.edu-extra-block{}
+.edu-extra-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--accent);display:block;margin-bottom:.5rem}
+.edu-extra-entry{}
+.edu-extra-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;margin-bottom:.25rem}
+.edu-extra-top strong{font-size:.85rem;font-weight:700;color:var(--text)}
+.edu-extra-date{font-size:.72rem;color:var(--dim);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+.edu-extra-desc{font-size:.78rem;color:var(--text2);line-height:1.65;margin:0}
+
+/* ═══ SKILLS ═══ */
+.skills-grid{display:grid;gap:.7rem}
+@media(min-width:640px){.skills-grid{grid-template-columns:1fr 1fr;gap:.7rem}}
+.skill-card{padding:1.1rem 1.3rem}
+.skill-card h3{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}
+.skill-card h3::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--grad);flex-shrink:0}
+.skill-card .pills{display:flex;flex-wrap:wrap;gap:.3rem}
+.skill-card .pills span{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--text2);
+  padding:.25rem .6rem;background:var(--glass2);border-radius:6px;border:1px solid transparent;
+  transition:all .2s;cursor:default}
+.skill-card .pills span:hover{color:var(--accent2);border-color:rgba(59,130,246,.2);
+  background:rgba(59,130,246,.06);box-shadow:0 0 12px rgba(59,130,246,.08)}
+
+/* ═══ PROJECTS ═══ */
+.project{margin-bottom:.7rem}
+.proj-card{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.proj-card .proj-top{display:flex;align-items:flex-start;gap:1rem;margin-bottom:.7rem}
+.proj-card .proj-num{font-family:"JetBrains Mono",monospace;font-size:1.8rem;font-weight:700;
+  line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;flex-shrink:0;min-width:2.5rem;padding-top:.15rem}
+.proj-card .proj-info{flex:1}
+.proj-card h3{font-size:1rem;font-weight:700;line-height:1.35;margin-bottom:.2rem;transition:color .2s}
+.proj-card:hover h3{color:var(--accent2)}
+.proj-card .proj-meta{font-size:.75rem;color:var(--dim);margin-bottom:.5rem}
+.proj-card .proj-lead{font-size:.88rem;color:var(--text2);line-height:1.7}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.7rem}
+.proj-tags span{font-family:"JetBrains Mono",monospace;font-size:.62rem;color:var(--dim);
+  padding:.2rem .5rem;background:var(--glass);border-radius:5px;border:1px solid var(--border);
+  transition:all .15s}
+.proj-tags span:hover{color:var(--accent2);border-color:rgba(59,130,246,.2)}
+.proj-toggle{position:absolute;top:1.3rem;right:1.3rem;width:1.8rem;height:1.8rem;
+  background:var(--glass2);border:1px solid var(--border);border-radius:6px;cursor:pointer;
+  font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--dim);
+  display:grid;place-content:center;transition:all .2s;z-index:2}
+.proj-toggle:hover{border-color:var(--accent);color:var(--accent2);box-shadow:var(--glow)}
+.proj-detail{display:none;padding:1.2rem 0 0;margin:1rem 0 0;border-top:1px solid var(--border)}
+.project.open .proj-detail,.work-entry.open .proj-detail{display:block;animation:fadeIn .35s ease-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.proj-detail p{font-size:.9rem;color:var(--text2);line-height:1.75;margin-bottom:.8rem}
+.proj-detail p:last-child{margin-bottom:0}
+.proj-detail .sub{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent2);margin:1.5rem 0 .5rem}
+.proj-detail .sub:first-child{margin-top:0}
+
+/* ═══ QUIZ ═══ */
+.quiz{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;
+  margin:1.2rem 0}
+.quiz .q-prompt{font-size:.88rem;color:var(--text);font-weight:600;margin-bottom:.7rem}
+.quiz .q-rows{display:grid;gap:.25rem;margin-bottom:.8rem;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--dim)}
+.quiz .q-rows b{color:var(--text);font-weight:500}
+.quiz .q-btns{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.8rem}
+.quiz .q-btns button{font-family:"Inter",sans-serif;font-size:.74rem;font-weight:500;cursor:pointer;
+  background:var(--glass2);color:var(--text2);border:1px solid var(--border);border-radius:6px;
+  padding:.4rem .8rem;transition:all .2s}
+.quiz .q-btns button:hover{border-color:var(--accent);color:var(--accent2);
+  background:rgba(59,130,246,.06);box-shadow:0 0 16px rgba(59,130,246,.1)}
+.quiz .q-out{font-size:.88rem;color:var(--text2);min-height:2rem;line-height:1.65}
+.quiz .q-out b{color:var(--text);font-weight:700}
+
+/* ═══ WORK ═══ */
+.work-entry{margin-bottom:.7rem}
+.work-card .work-head{display:flex;gap:1rem;align-items:flex-start}
+.work-card .work-co{font-family:"JetBrains Mono",monospace;font-size:.65rem;font-weight:500;
+  color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;flex-shrink:0;
+  min-width:6rem;padding-top:.3rem}
+.work-card .work-info{flex:1}
+.work-card h3{font-size:1rem;font-weight:700;line-height:1.35;margin-bottom:.15rem;transition:color .2s}
+.work-card:hover h3{color:var(--accent2)}
+.work-card .work-meta{font-size:.75rem;color:var(--dim);margin-bottom:.5rem}
+.work-card .work-lead{font-size:.88rem;color:var(--text2);line-height:1.7}
+.work-detail{padding:1.2rem 0 0;margin:1rem 0 0;border-top:1px solid var(--border)}
+.work-detail p{font-size:.9rem;color:var(--text2);line-height:1.75;margin-bottom:.8rem}
+.work-detail p:last-child{margin-bottom:0}
+.work-detail .sub{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim);margin:1.1rem 0 .4rem}
+.work-detail .sub:first-child{margin-top:0}
+
+/* ═══ WRITING ═══ */
+.writing-list{display:grid;gap:.5rem}
+.writing-item{padding:1rem 1.3rem}
+.writing-item .w-date{font-family:"JetBrains Mono",monospace;font-size:.62rem;color:var(--dim);
+  letter-spacing:.06em;margin-bottom:.3rem}
+.writing-item h3{font-size:.9rem;font-weight:700;margin-bottom:.3rem;line-height:1.4;transition:color .2s}
+.writing-item:hover h3{color:var(--accent2)}
+.writing-item p{font-size:.82rem;color:var(--text2);line-height:1.65}
+
+/* ═══ COURSEWORK ═══ */
+.term{margin-bottom:2rem}
+.term:last-child{margin-bottom:0}
+.term-label{font-family:"JetBrains Mono",monospace;font-size:.65rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:.7rem;
+  display:flex;align-items:center;gap:.7rem}
+.term-label::after{content:"";flex:1;height:1px;background:var(--border)}
+.crs-grid{display:grid;gap:.5rem}
+@media(min-width:640px){.crs-grid{grid-template-columns:1fr 1fr;gap:.5rem 1rem}}
+.crs{padding:.7rem 0}
+.crs h4{font-size:.82rem;font-weight:700;line-height:1.35;margin-bottom:.1rem}
+.crs .prof{font-size:.68rem;color:var(--cyan);margin-bottom:.2rem}
+.crs p{font-size:.78rem;color:var(--dim);line-height:1.6}
+
+/* ═══ CONTACT ═══ */
+.contact-layout{display:grid;gap:2.5rem}
+@media(min-width:640px){.contact-layout{grid-template-columns:1.2fr 1fr;gap:3rem}}
+.form{display:grid;gap:.6rem}
 .form .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.form label{font-family:"Space Grotesk",sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
-.form input,.form textarea{font-family:"Source Serif 4",Georgia,serif;font-size:.95rem;width:100%;
-  background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:2px;padding:.6rem .7rem}
-.form input:focus,.form textarea:focus{border-color:var(--accent);outline:none}
-.form textarea{min-height:6.5rem;resize:vertical}
-.form button{font-family:"Space Grotesk",sans-serif;font-size:.85rem;cursor:pointer;justify-self:start;
-  background:var(--accent);color:var(--on-accent);border:1px solid var(--accent);border-radius:2px;padding:.5rem 1.5rem;margin-top:.35rem;font-weight:500}
-.form button:hover{background:transparent;color:var(--accent)}
-footer{margin-top:4rem;border-top:1px solid var(--line);padding:1.5rem 0 3rem;color:var(--dim);font-size:.8rem}
+.form label{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.form input,.form textarea{font-family:"Inter",sans-serif;font-size:.88rem;width:100%;
+  background:var(--glass2);color:var(--text);border:1px solid var(--border);border-radius:var(--r);
+  padding:.6rem .8rem;transition:all .2s}
+.form input:focus,.form textarea:focus{border-color:var(--accent);outline:none;
+  box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+.form textarea{min-height:7rem;resize:vertical}
+.form .submit-btn{justify-self:start}
+.contact-info{display:flex;flex-direction:column;gap:1rem;justify-content:center}
+.ci{display:flex;align-items:center;gap:.8rem}
+.ci .ci-icon{width:2.2rem;height:2.2rem;border-radius:var(--r);background:var(--glass2);
+  border:1px solid var(--border);display:grid;place-content:center;font-size:.7rem;color:var(--accent2);flex-shrink:0}
+.ci .ci-text{font-size:.82rem;color:var(--text2)}
+.ci .ci-text a{color:var(--accent2)}
+.ci .ci-label{font-size:.62rem;color:var(--dim);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
+/* ═══ FOOTER ═══ */
+footer{margin-top:clamp(5rem,10vw,7rem);border-top:1px solid var(--border);
+  padding:2rem 0 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+footer p{font-size:.72rem;color:var(--dim)}
+footer .flinks{display:flex;gap:1rem}
+footer .flinks a{font-size:.72rem;color:var(--dim);transition:color .15s}
+footer .flinks a:hover{color:var(--accent2)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:640px){
+  .nav-inner{padding:.5rem 1rem}
+  .hero h1{font-size:clamp(2.8rem,12vw,4rem)}
+  .proj-card .proj-num{font-size:1.3rem;min-width:2rem}
+  .work-card .work-head{flex-direction:column;gap:.3rem}
+  .work-card .work-co{min-width:auto}
+}
 </style>
 </head>
 <body>
 
-<nav id="nav" aria-label="Sections">
-  <ul>
-    <li><a href="#top">Top</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#writing">Writing</a></li>
-    <li><a href="#coursework">Coursework</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li class="themes">
-      <button type="button" id="themeBtn" aria-label="Change theme">&#9681;</button>
-    </li>
-  </ul>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">A<span>N</span></div>
+    <div class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#work">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#coursework">Courses</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button type="button" class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9681;</button>
+  </div>
 </nav>
 
 <main>
 <div class="wrap">
 
-  <header class="hero" id="top">
-    <div class="hero-grid">
-    <div>
-    <h1>Aditya<br>Nakadi<span>.</span></h1>
-    <p class="role">Threat intelligence, security testing, technology policy</p>
-    <p class="lede">I work across offensive security testing, cyber threat intelligence, and the governance and regulatory analysis that determines how an organisation responds to what testing produces. MS Cybersecurity candidate at the Georgia Institute of Technology, graduating May 2027.</p>
-    <p class="links">
-      <a href="https://www.linkedin.com/in/aditya-nakadi">LinkedIn</a>
-      <a href="Aditya-Nakadi-Resume.pdf">Resume</a>
-      <!-- <a href="https://github.com/adityastellar">GitHub</a> -->
-    </p>
+<!-- ════ HERO ════ -->
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">MS Cybersecurity &sol; Georgia Tech &sol; 2027</div>
+    <h1>Aditya<br><span class="gradient">Nakadi.</span></h1>
+    <p class="subtitle">Specialising in offensive security testing, cyber threat intelligence, and the governance and regulatory frameworks that inform how organisations respond to security findings.</p>
+    <div class="hero-actions">
+      <a href="Aditya-Nakadi-Resume.pdf" class="btn btn-primary">Resume &rarr;</a>
+      <a href="https://www.linkedin.com/in/aditya-nakadi" class="btn btn-ghost">LinkedIn</a>
     </div>
-    <div class="portrait">
-      <img src="portrait.jpg" alt="Aditya Nakadi">
-    </div>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <section id="projects">
-    <div class="head"><h2>Projects</h2></div>
-
-    <article class="card" id="p-cti">
-      <div class="idx">01</div>
-      <h3>Registration-based indicators for detecting abusive activity</h3>
-      <div class="meta">PUBP 8803 &middot; Prof. Sergio Caltagirone &middot; Spring 2026</div>
-      <p class="lead">Execution of the complete intelligence cycle for an assigned external customer, encompassing requirements definition, collection strategy, analysis and a written dissemination product. The engagement addressed the customer's objective of reducing abusive account registrations on a public intelligence platform without restricting access for the analysts, journalists and researchers who constitute its user base.</p>
-      <div class="tags"><span>Intelligence cycle</span><span>OSINT</span><span>Recorded Future</span><span>MITRE ATT&amp;CK</span><span>Confidence grading</span></div>
-      <button class="toggle" type="button" aria-label="Expand" aria-expanded="false" aria-controls="more-p-cti">+</button>
-      <div class="more" id="more-p-cti">
-        <p>Analysis of thirty domains spanning disposable services, mainstream providers, confirmed abuse and typosquatted infrastructure established that no attribute observable at registration reliably predicts subsequent abuse. Vendor risk scores were found to measure exposure within threat reporting rather than intent, while structural indicators such as typosquatting and homograph similarity proved the most dependable signal available at registration, as they rely on string comparison rather than accumulated telemetry. The final report was issued at TLP:AMBER with MITRE ATT&amp;CK mappings and seven recommendations.</p>
-        <div class="pick">
-          <h4>Three domains, identical vendor risk score. Which should registration policy block?</h4>
-          <p class="why">The report concluded that registration-time attributes cannot reliably predict abuse. Each answer explains why.</p>
-          <div class="rows">
-            <div>A &nbsp; score <b>24</b> &nbsp;&middot;&nbsp; mail records <b>yes</b> &nbsp;&middot;&nbsp; hundreds of millions of users</div>
-            <div>B &nbsp; score <b>24</b> &nbsp;&middot;&nbsp; mail records <b>catch-all</b> &nbsp;&middot;&nbsp; bulk signups</div>
-            <div>C &nbsp; score <b>24</b> &nbsp;&middot;&nbsp; mail records <b>none</b> &nbsp;&middot;&nbsp; malware hosting</div>
+<!-- ════ EDUCATION ════ -->
+<section id="education" class="reveal">
+  <div class="sec-head"><h2>Education &amp; Credentials</h2></div>
+  <div class="edu-grid">
+    <div class="card edu-card">
+      <div class="label">Graduate</div>
+      <h3>Georgia Institute of Technology</h3>
+      <p class="meta">MS Cybersecurity &middot; <strong>GPA 3.75</strong><br>Aug 2025 &ndash; May 2027</p>
+    </div>
+    <div class="card edu-card">
+      <div class="label">Undergraduate</div>
+      <h3>SVKM&rsquo;s NMIMS</h3>
+      <p class="meta">BTech Computer Science &amp; Engineering &mdash; Cyber Security<br>Jul 2021 &ndash; May 2025</p>
+    </div>
+    <div class="card edu-card">
+      <div class="label">Certification</div>
+      <h3>CompTIA Security+</h3>
+      <p class="meta">SY0-701 &middot; Issued November 2026</p>
+    </div>
+    <div class="card edu-extra">
+      <div class="edu-extra-block">
+        <span class="edu-extra-label">Teaching</span>
+        <div class="edu-extra-entry">
+          <div class="edu-extra-top">
+            <strong>Graduate Teaching Assistant</strong>
+            <span class="edu-extra-date">Aug &ndash; Dec 2026</span>
           </div>
-          <div class="ctl">
+          <p class="edu-extra-desc">Information Security Strategies and Policies (PUBP/CS 6725), under Prof.&nbsp;Milton&nbsp;M&nbsp;Mueller. Evaluated written assignments and final term papers; supported assignment design for a graduate course covering cybersecurity policy at organisational, national and transnational levels.</p>
+        </div>
+      </div>
+      <div class="edu-extra-block">
+        <span class="edu-extra-label">Leadership</span>
+        <div class="edu-extra-entry">
+          <div class="edu-extra-top">
+            <strong>Graduate Student Senator</strong>
+            <span class="edu-extra-date">Aug 2025 &ndash; May 2026</span>
+          </div>
+          <p class="edu-extra-desc">Ivan Allen College, Georgia Tech Student Government Association</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SKILLS ════ -->
+<section id="skills" class="reveal">
+  <div class="sec-head"><h2>Skills</h2></div>
+  <div class="skills-grid">
+    <div class="card skill-card">
+      <h3>Security Testing &amp; Vulnerability Assessment</h3>
+      <div class="pills"><span>Penetration testing</span><span>VAPT</span><span>DAST</span><span>Binary exploitation</span><span>ROP</span><span>Buffer overflows</span><span>Format-string attacks</span><span>SSL pinning bypass</span><span>Burp Suite Pro</span><span>Nessus</span><span>Metasploit</span><span>pwntools</span><span>GDB</span><span>Frida</span></div>
+    </div>
+    <div class="card skill-card">
+      <h3>Incident Response &amp; SIEM</h3>
+      <div class="pills"><span>IOC identification</span><span>Attack stage tracing</span><span>Dashboard creation</span><span>Packet capture</span><span>Protocol analysis</span><span>TCP stream reconstruction</span><span>Splunk</span><span>SPL</span><span>SysMon</span><span>Wireshark</span><span>PCAP forensics</span></div>
+    </div>
+    <div class="card skill-card">
+      <h3>Governance, Risk &amp; Compliance</h3>
+      <div class="pills"><span>AI governance</span><span>Gap assessment</span><span>Control mapping</span><span>Compliance dashboarding</span><span>Privacy impact assessment</span><span>ISO 42001</span><span>EU AI Act</span><span>NIST AI RMF</span><span>SEBI CSCRF</span><span>DPDP Act</span><span>ECPA</span><span>FTC FIPPs</span></div>
+    </div>
+    <div class="card skill-card">
+      <h3>Threat Intelligence</h3>
+      <div class="pills"><span>Intelligence cycle</span><span>Indicator analysis</span><span>Confidence grading</span><span>TLP</span><span>DNS analysis</span><span>Threat hunting</span><span>Recorded Future</span><span>MITRE ATT&amp;CK</span><span>Diamond Model</span><span>OSINT</span></div>
+    </div>
+    <div class="card skill-card">
+      <h3>Identity &amp; Access Control</h3>
+      <div class="pills"><span>OAuth 2.0</span><span>PKCE</span><span>OIDC</span><span>JWT validation</span><span>Nonce &amp; state validation</span><span>RBAC</span><span>Okta</span></div>
+    </div>
+    <div class="card skill-card">
+      <h3>Trusted Computing</h3>
+      <div class="pills"><span>TPM 2.0</span><span>PCRs</span><span>Measured boot</span><span>Sealing</span><span>Remote attestation</span><span>Bell-LaPadula</span><span>Biba</span><span>Clark-Wilson</span><span>AppArmor</span></div>
+    </div>
+    <div class="card skill-card">
+      <h3>AI Security Tooling</h3>
+      <div class="pills"><span>Tool orchestration</span><span>Human-in-the-loop controls</span><span>Adversarial resilience testing</span><span>Code guardrails</span><span>LangChain</span><span>LangGraph</span><span>Ollama</span></div>
+    </div>
+    <div class="card skill-card">
+      <h3>Tools &amp; Languages</h3>
+      <div class="pills"><span>Python</span><span>C/C++</span><span>JavaScript</span><span>SQL</span><span>Git</span><span>Linux</span><span>Kali Linux</span><span>Nmap</span><span>Postman</span><span>John the Ripper</span><span>pyShark</span><span>Objection</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROJECTS ════ -->
+<section id="projects" class="reveal">
+  <div class="sec-head">
+    <h2>Projects</h2>
+  </div>
+
+  <div class="project" id="p-6035">
+    <div class="card proj-card" role="button" tabindex="0">
+      <div class="proj-top">
+        <div class="proj-num">01</div>
+        <div class="proj-info">
+          <h3>Offensive Security and Application Hardening</h3>
+          <div class="proj-meta">CS 6035 &middot; Dr. Wenke Lee &middot; Fall 2026</div>
+          <p class="proj-lead">Seven progressive offensive security projects spanning binary exploitation, cryptographic attack implementation, web application security, network forensics and malware analysis.</p>
+          <div class="proj-tags"><span>Binary exploitation</span><span>ROP</span><span>pwntools</span><span>RSA</span><span>AES-CBC</span><span>OWASP Top 10</span><span>Log4Shell</span><span>Wireshark</span><span>pyShark</span><span>John the Ripper</span></div>
+        </div>
+      </div>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
+        <div class="sub">Buffer Overflow Exploitation</div>
+        <p>Stack-based buffer overflow exploitation against compiled binaries, progressing from controlled EIP overwrite and NOP-sled shellcode injection to defeating non-executable stack protections.</p>
+        <div class="sub">Return-Oriented Programming Chains</div>
+        <p>Constructed ROP chains using pwntools to bypass NX and ASLR protections, with stack-pivoting payloads chaining gadgets from libc to achieve arbitrary code execution without injecting shellcode.</p>
+        <div class="sub">Cryptographic Attacks</div>
+        <p>Implemented Wiener&rsquo;s attack and H&aring;stad&rsquo;s broadcast attack against RSA, and recovered AES-CBC plaintexts through a padding oracle attack exploiting timing and error-based side channels.</p>
+        <div class="sub">OWASP Top 10 Web Security</div>
+        <p>Identified and exploited SQL injection, cross-site scripting, cross-site request forgery and server-side request forgery against a mock application environment, graded flag-by-flag with automated database resets.</p>
+        <div class="sub">Log4Shell RCE Reproduction</div>
+        <p>Reproduced the full CVE-2021-44228 remote code execution chain, from crafted JNDI lookup string through LDAP redirection to hosted exploit class, achieving arbitrary command execution on a vulnerable Apache Log4j instance.</p>
+        <div class="sub">Network Forensics and MITM Reconstruction</div>
+        <p>Reconstructed a man-in-the-middle intrusion from packet captures using Wireshark and pyShark, with credential hash recovery via John the Ripper and protocol analysis against RFC 2616 and RFC 1459.</p>
+        <div class="sub">Malware Analysis</div>
+        <p>Static and dynamic analysis of malware samples, examining binary characteristics, behavioral indicators and persistence mechanisms to classify threat type and assess capability.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project" id="p-ir">
+    <div class="card proj-card" role="button" tabindex="0">
+      <div class="proj-top">
+        <div class="proj-num">02</div>
+        <div class="proj-info">
+          <h3>Incident Response and AI-Driven Alert Triage</h3>
+          <div class="proj-meta">CS 6261 &middot; Dr. Vijay Madisetti &middot; Fall 2026</div>
+          <p class="proj-lead">Five labs spanning SIEM-based detection, ransomware investigation, network packet forensics, and the construction and failure analysis of an AI-driven security alert investigation agent.</p>
+          <div class="proj-tags"><span>Splunk</span><span>SPL</span><span>SysMon</span><span>Wireshark</span><span>LangChain</span><span>LangGraph</span><span>Ollama</span><span>Conti ransomware</span><span>IOC analysis</span><span>PCAP forensics</span></div>
+        </div>
+      </div>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
+        <div class="sub">SIEM detection and ransomware investigation</div>
+        <p>Investigated a Conti ransomware intrusion and a macro-enabled document attack using Splunk, writing SPL queries across SysMon sourcetypes to trace IOCs, identify attack stages and produce triage reports across three simulated security incidents. Designed interactive Splunk dashboards with SPL-driven visualisations including timecharts, pie and column charts, configured with time range pickers and dropdown filters to monitor web traffic patterns, error rates and status code distributions across log data.</p>
+        <div class="sub">Network packet forensics</div>
+        <p>Network forensics work used Wireshark for protocol hierarchy analysis, conversation analysis, display filtering and TCP stream reconstruction from packet captures.</p>
+        <div class="sub">AI-driven alert investigation agent</div>
+        <p>Built an AI-driven security alert investigation agent using LangChain, LangGraph and a local Ollama LLM (granite4:micro-h). The agent processed three investigation cases: an SSO sign-in from Romania, an overnight spike of twenty thousand failed login events, and a macro-enabled Word document launching PowerShell on an HR laptop. Tool orchestration included log searching, IP lookup, file listing and a structured report submission pipeline, with human approval gates and a verify.py fact-checker validating evidence citations against case files.</p>
+        <div class="sub">Rogue run post-incident review</div>
+        <p>A post-incident review examined what happened when the agent ran Case 3 unattended overnight: with no human gate on the propose_action tool, the agent followed planted attacker instructions embedded in evidence files and auto-approved blocking legitimate IP 10.20.0.5, generating 61 helpdesk tickets. The exercise demonstrated that code guardrails and human-in-the-loop controls are not optional for autonomous security tooling.</p>
+        <div class="quiz">
+          <p class="q-prompt">An unattended AI agent just blocked a legitimate IP. What failed?</p>
+          <div class="q-btns">
+            <button type="button" data-ir="model">The LLM was too weak</button>
+            <button type="button" data-ir="prompt">The prompt needed guardrails</button>
+            <button type="button" data-ir="gate">The action tool had no human gate</button>
+            <button type="button" data-ir="all">All of the above</button>
+          </div>
+          <p class="q-out" id="irOut"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project" id="p-cti">
+    <div class="card proj-card" role="button" tabindex="0">
+      <div class="proj-top">
+        <div class="proj-num">03</div>
+        <div class="proj-info">
+          <h3>Registration-Based Indicators for Detecting Abusive Activity</h3>
+          <div class="proj-meta">PUBP 8803 &middot; Prof. Sergio Caltagirone &middot; Spring 2026</div>
+          <p class="proj-lead">Execution of the complete intelligence cycle for an assigned external customer, encompassing requirements definition, collection strategy, analysis and a written dissemination product. The engagement addressed the customer&rsquo;s objective of reducing abusive account registrations on a public intelligence platform without restricting access for the analysts, journalists and researchers who constitute its user base.</p>
+          <div class="proj-tags"><span>Intelligence cycle</span><span>OSINT</span><span>Recorded Future</span><span>MITRE ATT&amp;CK</span><span>Confidence grading</span></div>
+        </div>
+      </div>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
+        <p>Analysis of thirty domains spanning disposable services, mainstream providers, confirmed abuse and typosquatted infrastructure established that no attribute observable at registration reliably predicts subsequent abuse. Vendor risk scores were found to measure exposure within threat reporting rather than intent, while structural indicators such as typosquatting and homograph similarity proved the most dependable signal available at registration, as they rely on string comparison rather than accumulated telemetry. The final report was issued at TLP:AMBER with MITRE ATT&amp;CK mappings and seven recommendations.</p>
+        <div class="quiz">
+          <p class="q-prompt">Three domains, identical vendor risk score. Which should registration policy block?</p>
+          <div class="q-rows">
+            <div>A &nbsp; score <b>24</b> &middot; mail records <b>yes</b> &middot; hundreds of millions of users</div>
+            <div>B &nbsp; score <b>24</b> &middot; mail records <b>catch-all</b> &middot; bulk signups</div>
+            <div>C &nbsp; score <b>24</b> &middot; mail records <b>none</b> &middot; malware hosting</div>
+          </div>
+          <div class="q-btns">
             <button type="button" data-pick="a">Block A</button>
             <button type="button" data-pick="b">Block B</button>
             <button type="button" data-pick="c">Block C</button>
             <button type="button" data-pick="score">Block on score</button>
             <button type="button" data-pick="none">Block none</button>
           </div>
-          <p class="verdict" id="ctiOut">Pick one.</p>
+          <p class="q-out" id="ctiOut"></p>
         </div>
       </div>
-    </article>
+    </div>
+  </div>
 
-    <article class="card" id="p-tpm">
-      <div class="idx">02</div>
-      <h3>TPM backed remote attestation</h3>
-      <div class="meta">CS 6238 Secure Computer Systems &middot; Spring 2026</div>
-      <p class="lead">A Python attestation service verifying virtual machine instances through nonce-based challenge and response and PCR-bound sealing policies, requiring a host to demonstrate its measured boot state before trust is extended.</p>
-      <div class="tags"><span>TPM 2.0</span><span>PCRs</span><span>Sealing policies</span><span>OAuth 2.0 / PKCE</span><span>Okta</span><span>Python</span></div>
-      <button class="toggle" type="button" aria-label="Expand" aria-expanded="false" aria-controls="more-p-tpm">+</button>
-      <div class="more" id="more-p-tpm">
+  <div class="project" id="p-tpm">
+    <div class="card proj-card" role="button" tabindex="0">
+      <div class="proj-top">
+        <div class="proj-num">04</div>
+        <div class="proj-info">
+          <h3>TPM-Backed Remote Attestation and Identity Protocols</h3>
+          <div class="proj-meta">CS 6238 &middot; Dr. Vijay Madisetti &middot; Spring 2026</div>
+          <p class="proj-lead">A Python attestation service verifying virtual machine instances through nonce-based challenge and response and PCR-bound sealing policies, requiring a host to demonstrate its measured boot state before trust is extended.</p>
+          <div class="proj-tags"><span>TPM 2.0</span><span>PCRs</span><span>Sealing policies</span><span>Bell-LaPadula</span><span>Biba</span><span>Clark-Wilson</span><span>OAuth 2.0 / PKCE</span><span>Okta</span><span>Python</span></div>
+        </div>
+      </div>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
         <p>A modified bootloader completes boot successfully. The register value diverges from the sealing policy, so a compromise at boot level obtains a sealed secret rather than usable key material.</p>
-        <p>The same coursework addressed identity protocols. I implemented the OAuth 2.0 Authorization Code flow with PKCE against Okta, then selectively disabled PKCE, state and nonce validation to demonstrate authorisation code interception, cross-site request forgery and replay against the implementation.</p>
+        <p>The same coursework addressed formal security models: Bell-LaPadula for confidentiality with PCR-sealed secrets, Biba for integrity with measurement-gated writes, and Clark-Wilson with TPM-signed ledger and IVP audit, all enforced through TPM 2.0 hardware primitives.</p>
+        <p>The identity protocols component implemented the OAuth 2.0 Authorization Code flow with PKCE against Okta, then selectively disabled PKCE, state and nonce validation to demonstrate authorisation code interception, cross-site request forgery and replay against the implementation.</p>
       </div>
-    </article>
+    </div>
+  </div>
 
-    <article class="card" id="p-pia">
-      <div class="idx">03</div>
-      <h3>Privacy impact assessment of an AI legal meeting assistant</h3>
-      <div class="meta">CS/PUBP 6726 &middot; Prof. Peter Swire &middot; September to October 2025</div>
-      <p class="lead">A privacy impact assessment of LuaLegal, an AI legal meeting assistant, conducted using the NIST Privacy Framework and Department of Justice assessment templates and evaluated against the Electronic Communications Privacy Act, the FTC Fair Information Practice Principles and the NIST AI Risk Management Framework.</p>
-      <div class="tags"><span>Privacy impact assessment</span><span>NIST Privacy Framework</span><span>NIST AI RMF</span><span>ECPA</span><span>FTC FIPPs</span></div>
-      <button class="toggle" type="button" aria-label="Expand" aria-expanded="false" aria-controls="more-p-pia">+</button>
-      <div class="more" id="more-p-pia">
-        <p>Eight privacy risks were scored for likelihood and impact across a three-stage processing pipeline and four AI sub-processors operating under zero data retention terms. Five controls were recommended, including per-participant timestamped consent verification and prompt-injection testing of vendor systems, addressing the divergence between contractual retention commitments and the consent actually obtained from meeting participants.</p>
+  <div class="project" id="p-bgp">
+    <div class="card proj-card" role="button" tabindex="0">
+      <div class="proj-top">
+        <div class="proj-num">05</div>
+        <div class="proj-info">
+          <h3>Internet Routing and BGP Policy</h3>
+          <div class="proj-meta">CS 6250 &middot; Dr. Alberto Dainotti &middot; Spring 2026</div>
+          <p class="proj-lead">A multi-autonomous-system Mini-Internet topology configured with customer and peer routing policies, used to validate RPKI origin validation and blackholing against documented hijack and route leak events retrieved through BGPStream. The coursework progressed from intra-domain routing through inter-domain peering to BGP security, and additionally covered programmable data planes using P4.</p>
+          <div class="proj-tags"><span>eBGP / iBGP</span><span>RPKI</span><span>Blackholing</span><span>BGPStream</span><span>P4</span></div>
+        </div>
       </div>
-    </article>
+    </div>
+  </div>
 
-    <article class="card" id="p-vote">
-      <div class="idx">04</div>
-      <h3>Blockchain and facial recognition for tamper-proof voting</h3>
-      <div class="meta">Published at ICDICI 2024, IEEE &middot; second of four authors</div>
-      <p class="lead">An Ethereum-based electronic voting system employing smart contracts for vote recording and tabulation and facial recognition for voter authentication, evaluated against one hundred simulated voters under varying lighting conditions and facial angles.</p>
-      <div class="tags"><span>Ethereum</span><span>Solidity</span><span>Smart contracts</span><span>Biometrics</span></div>
-      <button class="toggle" type="button" aria-label="Expand" aria-expanded="false" aria-controls="more-p-vote">+</button>
-      <div class="more" id="more-p-vote">
+  <div class="project" id="p-pia">
+    <div class="card proj-card" role="button" tabindex="0">
+      <div class="proj-top">
+        <div class="proj-num">06</div>
+        <div class="proj-info">
+          <h3>Privacy Impact Assessment of AI-Assisted Legal Technology</h3>
+          <div class="proj-meta">CS/PUBP 6726 &middot; Prof. Peter Swire &middot; Fall 2025</div>
+          <p class="proj-lead">A privacy impact assessment of LuaLegal, an AI legal meeting assistant, conducted using the NIST Privacy Framework and Department of Justice assessment templates and evaluated against the Electronic Communications Privacy Act, the FTC Fair Information Practice Principles and the NIST AI Risk Management Framework.</p>
+          <div class="proj-tags"><span>Privacy impact assessment</span><span>NIST Privacy Framework</span><span>NIST AI RMF</span><span>ECPA</span><span>FTC FIPPs</span><span>ISO/IEC 27701</span><span>SOC 2</span></div>
+        </div>
+      </div>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
+        <p>The assessment covered a three-stage processing pipeline (ingestion, processing, output storage) operating on AWS with TLS 1.3 in transit and AES-256 at rest, with four AI sub-processors (OpenAI, Anthropic, Google Cloud AI, AWS) operating under zero data retention terms.</p>
+        <p>Eight privacy risks were scored for likelihood and impact: unauthorised access, AI model retention, third-party integration, metadata leakage, insider threat, cross-border transfer, model inference attacks and data aggregation. Ten mitigating controls were mapped across the pipeline, and five recommendations were delivered: publish audit summaries, per-participant timestamped consent verification, vendor prompt-injection and model-retention testing, self-service deletion and export, and annual PIA review.</p>
+        <p>The assessment addressed the divergence between contractual retention commitments and the consent actually obtained from meeting participants, and drew on NIST SP 800-53 Rev. 5, SP 800-88r1, SP 800-61, ISO/IEC 27701 and SOC 2 alongside the primary frameworks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project" id="p-vote">
+    <div class="card proj-card" role="button" tabindex="0">
+      <div class="proj-top">
+        <div class="proj-num">07</div>
+        <div class="proj-info">
+          <h3>Blockchain and Facial Recognition for Tamper-Proof Voting</h3>
+          <div class="proj-meta">Published at ICDICI 2024, IEEE</div>
+          <p class="proj-lead">An Ethereum-based electronic voting system employing smart contracts for vote recording and tabulation and facial recognition for voter authentication, evaluated against one hundred simulated voters under varying lighting conditions and facial angles.</p>
+          <div class="proj-tags"><span>Ethereum</span><span>Solidity</span><span>Smart contracts</span><span>Biometrics</span><span>React</span><span>Node / Express</span></div>
+        </div>
+      </div>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
         <p><a href="https://doi.org/10.1109/ICDICI62993.2024.10810799">Integrating Blockchain and Facial Recognition for a Decentralized and Tamper-Proof Voting System</a>, ICDICI 2024, IEEE, pp. 95&ndash;101.</p>
-        <p>On review, the paper's claims regarding the elimination of fraud risk exceed what a controlled trial with cooperating participants can substantiate, and the work does not address coercion resistance or end-to-end verifiability. These would form the basis of the evaluation were the study repeated.</p>
+        <p>On review, the paper&rsquo;s claims regarding the elimination of fraud risk exceed what a controlled trial with cooperating participants can substantiate, and the work does not address coercion resistance or end-to-end verifiability. These would form the basis of the evaluation were the study repeated.</p>
       </div>
-    </article>
+    </div>
+  </div>
+</section>
 
-    <article class="card" id="p-bgp">
-      <div class="idx">05</div>
-      <h3>Internet routing and BGP policy</h3>
-      <div class="meta">CS 6250 Computer Networks &middot; Dr. Alberto Dainotti &middot; Spring 2026</div>
-      <p class="lead">A multi-autonomous-system Mini-Internet topology configured with customer and peer routing policies, used to validate RPKI origin validation and blackholing against documented hijack and route leak events retrieved through BGPStream.</p>
-      <div class="tags"><span>eBGP / iBGP</span><span>RPKI</span><span>Blackholing</span><span>BGPStream</span><span>P4</span></div>
-      <button class="toggle" type="button" aria-label="Expand" aria-expanded="false" aria-controls="more-p-bgp">+</button>
-      <div class="more" id="more-p-bgp">
-        <p>The coursework progressed from intra-domain routing through inter-domain peering to BGP security, and additionally covered programmable data planes using P4.</p>
+<!-- ════ WORK ════ -->
+<section id="work" class="reveal">
+  <div class="sec-head"><h2>Experience</h2></div>
+
+  <div class="work-entry">
+    <div class="card work-card proj-card" role="button" tabindex="0">
+      <div class="work-head">
+        <div class="work-co">IIFL Finance</div>
+        <div class="work-info">
+          <h3>Cybersecurity Intern, VAPT and Governance</h3>
+          <div class="work-meta">Mumbai &middot; January to May 2025</div>
+          <p class="work-lead">A seventeen-week engagement divided between offensive security testing and governance, reporting to the Head of Governance, Risk and Compliance. Testing covered more than fifty web applications, APIs, network hosts and DNS assets against OWASP methodology, together with mobile assessments and internal network penetration testing across five business units, producing over forty reports supported by reproducible proofs of concept.</p>
+          <div class="proj-tags"><span>OWASP</span><span>Burp Suite</span><span>Nessus</span><span>Nmap</span><span>Metasploit</span><span>ISO/IEC 42001</span><span>EU AI Act</span><span>DPDP Act</span><span>SEBI CSCRF</span></div>
+        </div>
       </div>
-    </article>
-  </section>
-
-  <section id="work">
-    <div class="head"><h2>Work</h2></div>
-
-    <article class="card" id="e-finance">
-      <div class="idx">IIFL FINANCE &middot; MUMBAI</div>
-      <h3>Cybersecurity Intern, VAPT and Governance</h3>
-      <div class="meta">January to May 2025</div>
-      <p class="lead">A seventeen-week engagement divided between offensive security testing and governance, reporting to the Head of Governance, Risk and Compliance. Testing covered more than fifty web applications, APIs, network hosts and DNS assets against OWASP methodology, together with mobile assessments and internal network penetration testing across five business units, producing over forty reports supported by reproducible proofs of concept.</p>
-      <div class="tags"><span>OWASP</span><span>Burp Suite</span><span>Nessus</span><span>ISO/IEC 42001</span><span>DPDP Act</span><span>SEBI CSCRF</span></div>
-      <button class="toggle" type="button" aria-label="Expand" aria-expanded="false" aria-controls="more-e-finance">+</button>
-      <div class="more" id="more-e-finance">
-        <p class="sublabel">Security testing</p>
-        <p>Findings ranged from injection, JWT and OTP bypass vulnerabilities at the application layer to default credentials and end-of-life services within the internal network. A password reset endpoint was found to implement no rate limiting: one thousand requests returned one thousand HTTP 200 responses and generated one thousand emails. A domain password spray identified weak credentials clustered by department, indicating shared onboarding practice rather than isolated user error.</p>
-        <p class="sublabel">Governance and compliance</p>
-        <p>Governance responsibilities included drafting an enterprise AI governance policy aligned to ISO/IEC 42001 and cross-checked against the EU AI Act, assessing the existing privacy policy against India's Digital Personal Data Protection Act, and expanding a SEBI CSCRF compliance dashboard from fifteen to thirty-four tracked parameters.</p>
-        <p class="sublabel">Process and documentation</p>
-        <p>I established a central API inventory with an associated severity model, initiated an internal vulnerability-tracking database modelled on National Vulnerability Database conventions, and authored team methodology documentation covering grey box testing, red teaming and the quarterly SEBI assessment cycle.</p>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
+        <div class="sub">Security Testing</div>
+        <p>Findings ranged from XSS, SQL injection, JWT bypass and privilege escalation vulnerabilities at the application layer, with chained exploitation paths leading to confirmed data extraction, to default credentials, SMB disclosure and CVE-2017-0144 within the internal network across five business units identified via Nmap, Nessus and Metasploit. A password reset endpoint was found to implement no rate limiting: one thousand Burp Intruder requests returned one thousand HTTP 200 responses and generated one thousand emails. A domain password spray identified weak credentials clustered by department, indicating shared onboarding practice rather than isolated user error.</p>
+        <div class="sub">Governance and Compliance</div>
+        <p>Governance responsibilities included drafting an enterprise AI governance policy aligned to ISO/IEC 42001 and cross-checked against the EU AI Act, assessing the existing privacy policy against India&rsquo;s Digital Personal Data Protection Act, and expanding the 5paisa SEBI CSCRF compliance dashboard from fifteen to thirty-four tracked parameters.</p>
+        <div class="sub">Process and Documentation</div>
+        <p>Established a central API inventory with an associated severity model, initiated an internal vulnerability-tracking database modelled on National Vulnerability Database conventions, and authored team methodology documentation covering grey-box testing, red teaming and the quarterly SEBI assessment cycle.</p>
         <p>The engagement demonstrated that remediation outcomes depend as much on the quality of reporting as on detection, as findings are acted upon when the recipient can reproduce them quickly and without ambiguity.</p>
       </div>
-    </article>
+    </div>
+  </div>
 
-    <article class="card" id="e-securities">
-      <div class="idx">IIFL SECURITIES &middot; MUMBAI</div>
-      <h3>Cybersecurity Intern, Application Security</h3>
-      <div class="meta">May to July 2024</div>
-      <p class="lead">Dynamic application security testing across enterprise web applications and REST APIs against the OWASP Top 10 and OWASP API Security Top 10. The principal finding was a high-severity insecure direct object reference spanning multiple endpoints, identified by testing authorisation controls endpoint by endpoint rather than assuming uniform enforcement, and confirmed as remediated on retest.</p>
-      <div class="tags"><span>DAST</span><span>IDOR</span><span>Postman</span><span>Frida / Objection</span><span>Cloud enumeration</span></div>
-      <button class="toggle" type="button" aria-label="Expand" aria-expanded="false" aria-controls="more-e-securities">+</button>
-      <div class="more" id="more-e-securities">
+  <div class="work-entry">
+    <div class="card work-card proj-card" role="button" tabindex="0">
+      <div class="work-head">
+        <div class="work-co">IIFL Securities</div>
+        <div class="work-info">
+          <h3>Cybersecurity Intern, Application Security</h3>
+          <div class="work-meta">Mumbai &middot; May to August 2024</div>
+          <p class="work-lead">Dynamic application security testing across enterprise web applications and REST APIs against the OWASP Top 10 and OWASP API Security Top 10. The principal finding was a high-severity insecure direct object reference spanning multiple endpoints, identified by testing authorisation controls endpoint by endpoint rather than assuming uniform enforcement, and confirmed as remediated on retest.</p>
+          <div class="proj-tags"><span>DAST</span><span>IDOR</span><span>Postman</span><span>Frida / Objection</span><span>Cloud enumeration</span></div>
+        </div>
+      </div>
+      <button class="proj-toggle" type="button" aria-label="Expand" aria-expanded="false">+</button>
+      <div class="proj-detail">
         <p>Additional responsibilities extended beyond application security: a wireless security assessment of the corporate network, participation in a password spray simulation with the VAPT team, mobile authorisation testing conducted outside the application interface by bypassing SSL pinning and root detection with Frida and Objection, cloud asset enumeration with accompanying hardening recommendations, and the development of audit checklists mapping internal controls to external compliance standards.</p>
       </div>
-    </article>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <section id="writing">
-    <div class="head"><h2>Writing</h2></div>
-    <p class="note">Full papers are available on request.</p>
-
-    <article class="card">
-      <div class="idx">PUBP/CS 6725 &middot; DEC 2025</div>
+<!-- ════ WRITING ════ -->
+<section id="writing" class="reveal">
+  <div class="sec-head">
+    <h2>Writing</h2>
+    <p>Full papers available on request.</p>
+  </div>
+  <div class="writing-list">
+    <div class="card writing-item">
+      <div class="w-date">PUBP/CS 6725 &middot; Dec 2025</div>
       <h3>MOVEit Transfer Zero-Day: A Diamond Model Analysis and National Policy Response</h3>
-      <p class="lead">An analysis of Cl0p's exploitation of CVE-2023-34362 structured through the Diamond Model, including the socio-political and technology meta-features, followed by an argument for locating the policy response at the national level and a set of proposed measures covering secure development, software liability and supply chain transparency.</p>
-    </article>
-
-    <article class="card">
-      <div class="idx">INTA 6103 &middot; NOV 2025</div>
+      <p>An analysis of Cl0p&rsquo;s exploitation of CVE-2023-34362 structured through the Diamond Model, including the socio-political and technology meta-features, followed by an argument for locating the policy response at the national level and a set of proposed measures covering secure development, software liability and supply chain transparency.</p>
+    </div>
+    <div class="card writing-item">
+      <div class="w-date">INTA 6103 &middot; Nov 2025</div>
       <h3>What Explains Variation in National Cyber Doctrines Across Democracies?</h3>
-      <p class="lead">A structured comparison of the United States, Germany and India examining threat environment, domestic institutions and alliance structure as explanations for doctrinal divergence, with explicit falsification conditions stated for each hypothesis. Germany provides disconfirming evidence for the threat-environment hypothesis, supporting domestic institutions as the dominant mediating variable.</p>
-    </article>
-
-    <article class="card">
-      <div class="idx">PUBP 8823 &middot; DEC 2025</div>
+      <p>A structured comparison of the United States, Germany and India examining threat environment, domestic institutions and alliance structure as explanations for doctrinal divergence, with explicit falsification conditions stated for each hypothesis.</p>
+    </div>
+    <div class="card writing-item">
+      <div class="w-date">PUBP 8823 &middot; Dec 2025</div>
       <h3>Why Pakistan Disrupts While China Infiltrates</h3>
-      <p class="lead">An examination of why Pakistan and China employ structurally different forms of subversion against India, arguing that rivalry type rather than regime type or material capability accounts for the divergence. The argument is developed through a six-stage causal mechanism and process tracing on the Pulwama attack and on RedEcho's intrusions into Indian power infrastructure.</p>
-    </article>
-
-    <article class="card">
-      <div class="idx">CS 6268 &middot; APR 2026</div>
+      <p>An examination of why Pakistan and China employ structurally different forms of subversion against India, arguing that rivalry type rather than regime type or material capability accounts for the divergence.</p>
+    </div>
+    <div class="card writing-item">
+      <div class="w-date">CS 6268 &middot; Apr 2026</div>
       <h3>Manipulating the Help Desk: Group Behaviour in the Twitter and MGM Breaches</h3>
-      <p class="lead">A comparative analysis of the 2020 Twitter and 2023 MGM Resorts compromises, both initiated through pretextual telephone contact rather than technical exploitation. The paper argues that group-level psychological processes rather than individual error account for their success, and that verification procedures require structural redesign rather than additional awareness training.</p>
-    </article>
-  </section>
-
-  <section id="coursework">
-    <div class="head"><h2>Coursework</h2></div>
-
-    <p class="term">FALL 2026</p>
-    <div class="courses">
-      <div class="course"><h3>CS 6035, Introduction to Information Security</h3><p class="who">Dr. Wenke Lee</p><p>Applied work across binary exploitation, RSA cryptography, web and API security, Log4Shell and malware analysis.</p></div>
-      <div class="course"><h3>CS 6261, Cyber Incident Response</h3><p class="who">Dr. Vijay Madisetti</p><p>Incident response process and reporting, log and packet analysis using Splunk and Wireshark, and case studies of major breaches.</p></div>
-      <div class="course"><h3>PUBP 6111, Internet and Public Policy</h3><p class="who">Dr. Hans Klein</p><p>The interaction between internet architecture and policy making, and the institutions responsible for making and enforcing those policies.</p></div>
+      <p>A comparative analysis of the 2020 Twitter and 2023 MGM Resorts compromises, both initiated through pretextual telephone contact rather than technical exploitation.</p>
     </div>
+  </div>
+</section>
 
-    <p class="term">SPRING 2026</p>
-    <div class="courses">
-      <div class="course"><h3>PUBP 8803, Cyber Threat Intelligence</h3><p class="who">Prof. Sergio Caltagirone</p><p>Intelligence tradecraft and analytic method, structured around a semester-long project conducted for an assigned customer.</p></div>
-      <div class="course"><h3>CS 6238, Secure Computer Systems</h3><p class="who">Dr. Vijay Madisetti</p><p>Trusted computing bases, trusted platform modules, operating system access control, covert channels and database security.</p></div>
-      <div class="course"><h3>CS 6250, Computer Networks</h3><p class="who">Dr. Alberto Dainotti</p><p>Internet interconnection economics, BGP policy and security, RPKI, and programmable data planes.</p></div>
-      <div class="course"><h3>CS 6268, Psychology of Cybersecurity</h3><p class="who">Dr. Courtney Crooks</p><p>Cognitive security, deception and trust, and the behaviour of individuals within organisations under operational pressure.</p></div>
+<!-- ════ COURSEWORK ════ -->
+<section id="coursework" class="reveal">
+  <div class="sec-head"><h2>Coursework</h2></div>
+
+  <div class="term">
+    <div class="term-label">Fall 2026</div>
+    <div class="crs-grid">
+      <div class="crs"><h4>CS 6035, Introduction to Information Security</h4><div class="prof">Dr. Wenke Lee</div><p>Seven projects across binary exploitation, RSA and AES-CBC cryptographic attacks, OWASP Top 10 web security, Log4Shell RCE chain reproduction, MITM packet forensics and malware analysis.</p></div>
+      <div class="crs"><h4>CS 6261, Cyber Incident Response</h4><div class="prof">Dr. Vijay Madisetti</div><p>SIEM-based detection and triage with Splunk, network packet forensics with Wireshark, Conti ransomware investigation, and an AI-driven alert investigation agent built with LangChain, LangGraph and a local LLM.</p></div>
+      <div class="crs"><h4>PUBP 6111, Internet and Public Policy</h4><div class="prof">Dr. Hans Klein</div><p>The interaction between internet architecture and policy making, and the institutions responsible for making and enforcing those policies.</p></div>
     </div>
+  </div>
 
-    <p class="term">FALL 2025</p>
-    <div class="courses">
-      <div class="course"><h3>PUBP/CS 6725, Information Security Strategies and Policies</h3><p class="who">Dr. Milton Mueller</p><p>Cybersecurity policy at the organisational, national and transnational levels. I now serve as the teaching assistant for this course.</p></div>
-      <div class="course"><h3>CS/PUBP 6726, Privacy Technology, Policy, and Law</h3><p class="who">Prof. Peter Swire</p><p>Privacy regulation and ethics, privacy enhancing technologies, and government access to personal data.</p></div>
-      <div class="course"><h3>PUBP 8823, Subversion and Cyber Conflict</h3><p class="who">Dr. Lennart Maschmeyer and Dr. Hans Klein</p><p>Subversion as an instrument of statecraft, from Cold War active measures through to cyber operations and disinformation.</p></div>
-      <div class="course"><h3>INTA 6103, International Security</h3><p class="who">Dr. Lincoln Hines</p><p>Deterrence, alliances and emerging technology, including a US Department of State Diplomacy Lab project on China's space diplomacy.</p></div>
+  <div class="term">
+    <div class="term-label">Spring 2026</div>
+    <div class="crs-grid">
+      <div class="crs"><h4>PUBP 8803, Cyber Threat Intelligence</h4><div class="prof">Prof. Sergio Caltagirone</div><p>Intelligence tradecraft and analytic method, structured around a semester-long project conducted for an assigned customer.</p></div>
+      <div class="crs"><h4>CS 6238, Secure Computer Systems</h4><div class="prof">Dr. Vijay Madisetti</div><p>Trusted computing bases, trusted platform modules, operating system access control, covert channels and database security.</p></div>
+      <div class="crs"><h4>CS 6250, Computer Networks</h4><div class="prof">Dr. Alberto Dainotti</div><p>Internet interconnection economics, BGP policy and security, RPKI, and programmable data planes.</p></div>
+      <div class="crs"><h4>CS 6268, Psychology of Cybersecurity</h4><div class="prof">Dr. Courtney Crooks</div><p>Cognitive security, deception and trust, and the behaviour of individuals within organisations under operational pressure.</p></div>
     </div>
-  </section>
+  </div>
 
-  <section id="skills">
-    <div class="head"><h2>Skills</h2></div>
-    <div class="grid2">
-      <div><h3>Threat intelligence</h3><p>Intelligence cycle, threat hunting, OSINT, DNS and registration analysis, Recorded Future, MITRE ATT&amp;CK, Diamond Model</p></div>
-      <div><h3>Application and API security</h3><p>VAPT, DAST, OWASP Top 10 and API Security Top 10, authorisation testing, remediation validation</p></div>
-      <div><h3>Trusted computing</h3><p>TPM 2.0, PCRs, measured boot, sealing, remote attestation, access control</p></div>
-      <div><h3>Governance and privacy</h3><p>ISO/IEC 42001, EU AI Act, DPDP Act, NIST CSF, SEBI CSCRF, privacy impact assessment</p></div>
-      <div><h3>Identity and access</h3><p>OAuth 2.0 Authorization Code flow, PKCE, OIDC, Okta, JWT validation, nonce and state validation, RBAC</p></div>
-      <div><h3>Networking</h3><p>eBGP and iBGP, Gao-Rexford, prefix filtering, BGPStream, P4</p></div>
-      <div><h3>Tools and languages</h3><p>Python, C/C++, JavaScript, SQL, Git, Burp Suite Professional, Postman, Wireshark, Nmap, Metasploit, Kali Linux</p></div>
+  <div class="term">
+    <div class="term-label">Fall 2025</div>
+    <div class="crs-grid">
+      <div class="crs"><h4>PUBP/CS 6725, Information Security Strategies and Policies</h4><div class="prof">Dr. Milton Mueller</div><p>Cybersecurity policy at the organisational, national and transnational levels. Currently serving as the graduate teaching assistant for this course.</p></div>
+      <div class="crs"><h4>CS/PUBP 6726, Privacy Technology, Policy, and Law</h4><div class="prof">Prof. Peter Swire</div><p>Privacy regulation and ethics, privacy enhancing technologies, and government access to personal data.</p></div>
+      <div class="crs"><h4>PUBP 8823, Subversion and Cyber Conflict</h4><div class="prof">Dr. Lennart Maschmeyer and Dr. Hans Klein</div><p>Subversion as an instrument of statecraft, from Cold War active measures through to cyber operations and disinformation.</p></div>
+      <div class="crs"><h4>INTA 6103, International Security</h4><div class="prof">Dr. Lincoln Hines</div><p>Deterrence, alliances and emerging technology, including a US Department of State Diplomacy Lab project on China&rsquo;s space diplomacy.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="education">
-    <div class="head"><h2>Education</h2></div>
-    <div class="grid2">
-      <div class="cred"><h3>Georgia Institute of Technology</h3><p>MS Cybersecurity. August 2025 to May 2027. GPA 3.75.</p></div>
-      <div class="cred"><h3>SVKM's NMIMS</h3><p>BTech Computer Science and Engineering - Cyber Security. July 2021 to May 2025.</p></div>
-      <div class="cred"><h3>Graduate Teaching Assistant</h3><p>Information Security Strategies and Policies, PUBP/CS 6725, Georgia Tech. August to December 2026.</p></div>
-      <div class="cred"><h3>Graduate Student Senator</h3><p>Ivan Allen College, Georgia Tech Student Government Association. August 2025 to May 2026.</p></div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="head"><h2>Contact</h2></div>
-    <p class="note">Seeking full-time roles commencing May 2027 in threat intelligence, application and API security, security engineering, cyber risk or security policy. Enquiries are welcome in advance of that date, and messages submitted below are delivered directly to my inbox.</p>
+<!-- ════ CONTACT ════ -->
+<section id="contact" class="reveal">
+  <div class="sec-head">
+    <h2>Contact</h2>
+    <p>Seeking full-time roles commencing May 2027 in threat intelligence, application security, security engineering, cyber risk or security policy.</p>
+  </div>
+  <div class="contact-layout">
     <form class="form" action="https://formspree.io/f/xqpkgnyd" method="POST">
       <input type="hidden" name="_subject" value="Portfolio contact - Aditya Nakadi">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="trap">
@@ -407,71 +736,113 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:1.5rem 0 3rem;co
       <input type="email" id="cmail" name="email" required>
       <label for="cmsg">Message</label>
       <textarea id="cmsg" name="message" required></textarea>
-      <button type="submit">Send message</button>
+      <button type="submit" class="btn btn-primary submit-btn">Send message &rarr;</button>
     </form>
-  </section>
+    <div class="contact-info">
+      <div class="ci">
+        <div class="ci-icon">&#9741;</div>
+        <div class="ci-text"><div class="ci-label">LinkedIn</div><a href="https://www.linkedin.com/in/aditya-nakadi">linkedin.com/in/aditya-nakadi</a></div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">&#9872;</div>
+        <div class="ci-text"><div class="ci-label">Location</div>Atlanta, Georgia</div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">&#10003;</div>
+        <div class="ci-text"><div class="ci-label">Available</div>May 2027</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer><p>Aditya Nakadi &middot; Atlanta, Georgia</p></footer>
+<footer>
+  <p>&copy; 2026 Aditya Nakadi</p>
+  <div class="flinks">
+    <a href="https://www.linkedin.com/in/aditya-nakadi">LinkedIn</a>
+    <a href="Aditya-Nakadi-Resume.pdf">Resume</a>
+  </div>
+</footer>
+
 </div>
 </main>
 
 <script>
 (function(){
-  "use strict";
+"use strict";
 
-  var order = ['neutral', 'dark'];
-  var themeBtn = document.getElementById('themeBtn');
-  function setTheme(name){
-    document.documentElement.setAttribute('data-theme', name);
-    if(themeBtn) themeBtn.setAttribute('title', 'Theme: ' + name);
-    try { localStorage.setItem('theme', name); } catch(e){}
-  }
-  var saved = null;
-  try { saved = localStorage.getItem('theme'); } catch(e){}
-  setTheme(order.indexOf(saved) > -1 ? saved : 'neutral');
-  if(themeBtn){
-    themeBtn.addEventListener('click', function(){
-      var now = document.documentElement.getAttribute('data-theme');
-      setTheme(order[(order.indexOf(now) + 1) % order.length]);
-    });
-  }
-  function reduced(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+/* Theme */
+var order=["dark","light"],btn=document.getElementById("themeBtn");
+function set(t){document.documentElement.setAttribute("data-theme",t);try{localStorage.setItem("theme",t)}catch(e){}}
+var saved;try{saved=localStorage.getItem("theme")}catch(e){}
+set(order.indexOf(saved)>-1?saved:"dark");
+if(btn)btn.addEventListener("click",function(){
+  var now=document.documentElement.getAttribute("data-theme");
+  set(order[(order.indexOf(now)+1)%order.length]);
+});
 
-  Array.prototype.forEach.call(document.querySelectorAll('.toggle'), function(btn){
-    var card = btn.closest('.card');
-    btn.addEventListener('click', function(){
-      var open = card.classList.toggle('open');
-      btn.textContent = open ? '\u2212' : '+';
-      btn.setAttribute('aria-label', open ? 'Collapse' : 'Expand');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+/* Expand/collapse */
+document.querySelectorAll(".proj-card").forEach(function(card){
+  var parent=card.closest(".project")||card.closest(".work-entry");
+  var toggle=card.querySelector(".proj-toggle");
+  if(!parent||!toggle)return;
+  function flip(e){
+    if(e.target.closest(".q-btns"))return;
+    var open=parent.classList.toggle("open");
+    toggle.textContent=open?"−":"+";
+    toggle.setAttribute("aria-expanded",open);
+  }
+  card.addEventListener("click",flip);
+  card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();flip(e)}});
+});
+
+/* Scroll spy */
+var links=Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+var targets=links.map(function(a){return document.querySelector(a.getAttribute("href"))});
+function spy(){
+  var best=0,y=window.scrollY+160;
+  targets.forEach(function(t,i){if(t&&t.offsetTop<=y)best=i});
+  links.forEach(function(a,i){a.classList.toggle("here",i===best)});
+}
+window.addEventListener("scroll",spy,{passive:true});spy();
+
+/* Reveal */
+if("IntersectionObserver"in window&&!window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vis");io.unobserve(e.target)}});
+  },{threshold:.05});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
+}else{
+  document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("vis")});
+}
+
+/* CTI quiz */
+var ctiOut=document.getElementById("ctiOut");
+if(ctiOut){
+  var v={
+    a:'<b>Domain A is a mainstream mail provider.</b> Its score reflects constant appearance in threat reporting, which follows from a user base of hundreds of millions. Blocking it would exclude a substantial proportion of legitimate users alongside the abuse.',
+    b:'<b>Domain B is a disposable inbox service.</b> Defensible as a hygiene measure against automated bulk registration, but ineffective against higher-impact abuse, which arrives through trusted infrastructure. Appropriate as a soft block or verification step rather than a detection control.',
+    c:'<b>Domain C is a lookalike domain.</b> The strongest signal available at registration, because structural similarity can be computed before any telemetry exists. It is a partial control rather than a solution, and it requires a resolution check alongside it to avoid false positives against legitimate testing infrastructure that triggers the same rule.',
+    score:'<b>This would block all three, including the mail provider.</b> The score measures exposure within threat reporting rather than intent. Applied as a registration threshold it excludes mainstream providers while still permitting sophisticated abuse. It is suited to prioritising a review queue rather than gating access.',
+    none:'<b>This is the position the report argued.</b> No registration attribute reliably separates abuse from legitimate use, because registration describes how access was acquired rather than how it is used. Structural signals such as Domain C are worth operationalising, but detection belongs after the account exists: query patterns, movement across unrelated investigations and cross-account similarity.'
+  };
+  document.querySelectorAll("[data-pick]").forEach(function(b){
+    b.addEventListener("click",function(e){e.stopPropagation();ctiOut.innerHTML=v[b.getAttribute("data-pick")]});
   });
+}
 
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
-  var targets = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-  function spy(){
-    var best = 0, y = window.scrollY + 120;
-    targets.forEach(function(t, i){ if(t && t.offsetTop <= y) best = i; });
-    navLinks.forEach(function(a, i){ a.classList.toggle('here', i === best); });
-  }
-  window.addEventListener('scroll', spy, {passive:true});
-  spy();
-
-  var ctiOut = document.getElementById('ctiOut');
-  if(ctiOut){
-    var verdicts = {
-      a: '<b>Domain A is a mainstream mail provider.</b> Its score reflects constant appearance in threat reporting, which follows from a user base of hundreds of millions. Blocking it would exclude a substantial proportion of legitimate users alongside the abuse.',
-      b: '<b>Domain B is a disposable inbox service.</b> Defensible as a hygiene measure against automated bulk registration, but ineffective against higher-impact abuse, which arrives through trusted infrastructure. Appropriate as a soft block or verification step rather than a detection control.',
-      c: '<b>Domain C is a lookalike domain.</b> The strongest signal available at registration, because structural similarity can be computed before any telemetry exists. It is a partial control rather than a solution, and it requires a resolution check alongside it to avoid false positives against legitimate testing infrastructure that triggers the same rule.',
-      score: '<b>This would block all three, including the mail provider.</b> The score measures exposure within threat reporting rather than intent. Applied as a registration threshold it excludes mainstream providers while still permitting sophisticated abuse. It is suited to prioritising a review queue rather than gating access.',
-      none: '<b>This is the position the report argued.</b> No registration attribute reliably separates abuse from legitimate use, because registration describes how access was acquired rather than how it is used. Structural signals such as Domain C are worth operationalising, but detection belongs after the account exists: query patterns, movement across unrelated investigations and cross-account similarity.'
-    };
-    Array.prototype.forEach.call(document.querySelectorAll('[data-pick]'), function(btn){
-      btn.addEventListener('click', function(){
-        ctiOut.innerHTML = verdicts[btn.getAttribute('data-pick')];
-      });
-    });
-  }
+/* IR quiz */
+var irOut=document.getElementById("irOut");
+if(irOut){
+  var w={
+    model:'<b>The model size was a factor, but not the root cause.</b> A larger model might have been more sceptical of instructions embedded in evidence files, but no model should be trusted to override its own safety controls. The architectural flaw was that the propose_action tool accepted and executed without human confirmation.',
+    prompt:'<b>Prompt-level guardrails help but are insufficient.</b> The agent had code guardrails, but the planted instructions in the evidence files were crafted to look like legitimate system directives. Prompt engineering cannot reliably distinguish adversarial instructions from legitimate evidence. The missing control was structural: a human gate on destructive actions.',
+    gate:'<b>This is the primary failure.</b> The propose_action tool had no human approval gate. When the agent ran unattended overnight, it followed planted attacker instructions in the evidence files and auto-approved blocking legitimate IP 10.20.0.5, generating 61 helpdesk tickets. Human-in-the-loop controls on destructive actions are not optional for autonomous security tooling.',
+    all:'<b>Partially correct, but the layers are not equal.</b> A stronger model and better prompting might have reduced the probability of the failure, but neither eliminates it. The human approval gate is the only control that makes the failure structurally impossible rather than merely less likely. Defence in depth matters, but the missing gate was the critical gap.'
+  };
+  document.querySelectorAll("[data-ir]").forEach(function(b){
+    b.addEventListener("click",function(e){e.stopPropagation();irOut.innerHTML=w[b.getAttribute("data-ir")]});
+  });
+}
 })();
 </script>
 </body>
